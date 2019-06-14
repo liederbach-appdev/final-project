@@ -1,0 +1,74 @@
+<h1>
+  Meal list
+</h1>
+
+<a href="/new_meal_form">
+  Add a new meal
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Restaurant
+    </th>
+
+    <th>
+      Image url
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @meals.each do |meal| %>
+  <tr>
+    <td>
+      <%= meal.id %>
+    </td>
+
+    <td>
+      <%= meal.name %>
+    </td>
+
+    <td>
+      <%= meal.restaurant_id %>
+    </td>
+
+    <td>
+      <%= meal.image_url %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(meal.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(meal.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/meals/<%= meal.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

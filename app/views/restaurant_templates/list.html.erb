@@ -1,0 +1,57 @@
+<h1>
+  Restaurant Recommendations
+</h1>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      
+    </th>
+
+    <th>
+      <h4>Rating</h4>
+    </th>
+
+    <th>
+      <h4>Cuisine</h4>
+    </th>
+
+    <th>
+      <h4>Likes</h4>
+    </th>
+
+    <th>
+      
+    </th>
+
+  </tr>
+
+  <% @restaurants.each do |restaurant| %>
+  <tr>
+    <td>
+      <h4><%= restaurant.name%></h4>
+      <img src="<%= restaurant.image_url %>" alt="Image of the Restaurant">
+    </td>
+
+    <td>
+      <h5><%= restaurant.rating %> of 5</h5>
+    </td>
+
+    <td>
+      <h5><%= restaurant.cuisine %></h5>
+    </td>
+
+    <td>
+      <h5> <%=restaurant.likes%> likes</h5>
+    </td>
+
+    <td>
+      <a href="/restaurants/<%= restaurant.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

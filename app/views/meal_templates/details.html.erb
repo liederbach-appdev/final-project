@@ -1,0 +1,61 @@
+<h1>
+  Meal #<%= @meal.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/meals">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_meal_form/<%= @meal.id %>">
+      Edit meal
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_meal/<%= @meal.id %>">
+      Delete meal
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @meal.name %>
+  </dd>
+
+  <dt>
+    Restaurant
+  </dt>
+  <dd>
+    <%= @meal.restaurant_id %>
+  </dd>
+
+  <dt>
+    Image url
+  </dt>
+  <dd>
+    <%= @meal.image_url %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@meal.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@meal.updated_at) %> ago
+  </dd>
+</dl>
+

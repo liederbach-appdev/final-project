@@ -1,0 +1,82 @@
+<h1>
+  <%= @restaurant.name %> details
+</h1>
+
+
+
+<img src="<%=@restaurant.image_url%>">
+
+<div>
+  <div>
+    <a href="/restaurants">
+      Go back
+    </a>
+  </div>
+  
+  <%if current_user.id = @restaurant.creator_id%>
+  <div>
+    <a href="/existing_restaurant_form/<%= @restaurant.id %>">
+      Edit restaurant
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_restaurant/<%= @restaurant.id %>">
+      Delete restaurant
+    </a>
+  </div>
+  <%else%>
+  <%end%>
+  
+</div>
+
+<dl>
+   <dt>
+    <h3>Rating</h3>
+  </dt>
+  <dd>
+    <%= @restaurant.rating %> out of 5
+  </dd>
+  
+  <dt>
+    <h3>Address</h3>
+  </dt>
+  <dd>
+    <%= @restaurant.address %>
+  </dd>
+  
+    <dt>
+    <h3>Cuisine</h3>
+  </dt>
+  <dd>
+    <%= @restaurant.cuisine %>
+  </dd>
+  
+  <dt>
+    <h3>Description</h3>
+  </dt>
+  <dd>
+    <%= @restaurant.description %>
+  </dd>
+  
+  <dt>
+    <h3>Meals</h3>
+  </dt>
+  
+  <% @restaurant.meals.each do |meal| %>
+    <dd>
+      <%= meal.name %>
+    </dd>
+    
+    <dd>
+      <img src="<%= meal.image_url %>" alt="Image of <%=meal.name%>" height="200" width="200">
+    </dd>
+    <hr>
+  <% end %>
+  <div>
+    <a href="/new_meal_form/<%= @restaurant.id %>">
+      Add meal
+    </a>
+  </div>
+</dl>
+

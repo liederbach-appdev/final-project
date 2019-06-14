@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Change Me!</title>
+    <title>Tim's Recs</title>
 
     <!-- Expand the characters we can use beyond basic ASCII 🎉 -->
     <meta charset="utf-8">
@@ -35,10 +35,68 @@
   </head>
 
   <body>
+     <nav>
+      <div>
+        <a href="/">
+          <i class="fab fa-firstdraft fa-fw"></i>
 
+          Home
+        </a>
+      </div>
+   <% if current_user.present? %>
+      <div>
+        <a href="/new_restaurant_form">
+          <i class="fas fa-plus fa-fw"></i>
+
+          Add a restaurant
+        </a>
+      </div>
+
+      <div>
+        <a href="/restaurants">
+          <i class="fas fa-fire fa-fw"></i>
+
+          Recommendations
+        </a>
+      </div>
+
+  <% else %>
+     
+  <% end %>
+
+      <hr>
+
+      <% if current_user.blank? %>
+        <div>
+          <a href="/users/sign_in">
+            Sign in
+          </a>
+        </div>
+
+        <div>
+          <a href="/users/sign_up">
+            Sign up
+          </a>
+        </div>
+      <% else %>
+        <div>
+          <a href="/users/edit">
+            Edit profile
+          </a>
+        </div>
+
+        <div>
+          <a href="/users/sign_out" data-method="delete">
+            Sign out
+          </a>
+        </div>
+      <% end %>
+    </nav>
+    
     <!-- ↓↓↓ Your view templates all get plugged in below ↓↓↓ -->
     <%= yield %>
     <!-- ↑↑↑ Your view templates all get plugged in above ↑↑↑ -->
     
   </body>
 </html>
+

@@ -1,0 +1,39 @@
+<h1>
+  Add a new meal
+</h1>
+
+<hr>
+
+<%= render("meal_templates/validation_failures.html.erb") %>
+
+<form action="/insert_meal_record" method="post">
+  <div>
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" value="<%= @meal.name %>">
+  </div>
+
+  <div>
+    <input type="hidden" id="restaurant_id" name="restaurant_id" value="<%= @restaurant.id %>">
+  </div>
+
+  <div>
+    <label for="image_url">
+      Image url
+    </label>
+
+    <input type="text" id="image_url" name="image_url" value="<%= @meal.image_url %>">
+  </div>
+
+  <button>
+    Create meal
+  </button>
+</form>
+
+<hr>
+
+<a href="/restaurants/<%=@restaurant.id%>">
+  Go back
+</a>
